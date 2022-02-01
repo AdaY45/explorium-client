@@ -5,6 +5,15 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 16px;
     }
 
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: #ADFF33;
+    }
+
     body {
         margin: 0;
         padding: 0;

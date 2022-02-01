@@ -28,6 +28,12 @@ export const SearchBar = styled.input`
   animation-name: ${hideBar};
   animation-duration: 1.1s;
   animation-iteration-count: 1;
+
+  &:focus::placeholder {
+    transition: 0.5s all;
+    opacity: 0;
+    transform: translateX(20px);
+  }
 `;
 
 export const SearchIcon = styled(Search)`

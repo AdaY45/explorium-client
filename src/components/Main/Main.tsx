@@ -1,10 +1,11 @@
+import About from "./components/About";
 import { MainContainer, MainWrapper } from "./styles";
 
 const Main = () => {
     return (
         <MainWrapper>
             <MainContainer>
-                qwertyuiop[]
+                <About />
             </MainContainer>
         </MainWrapper>
     );
