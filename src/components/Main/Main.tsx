@@ -1,10 +1,11 @@
 import { MainContainer, MainWrapper } from "./styles";
+import Slider from "../Slider/Slider";
 
 const Main = () => {
     return (
         <MainWrapper>
             <MainContainer>
-                qwertyuiop[]
+                <Slider />
             </MainContainer>
         </MainWrapper>
     );
