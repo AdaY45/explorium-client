@@ -78,7 +78,7 @@ const Register = () => {
                                     <Error>{errors.password}</Error>
                                 ) : null}
                             </FormFieldWrapper>
-                            <Button type="submit">Сnpm startтворити акаунт</Button>
+                            <Button type="submit">Створити акаунт</Button>
                         </FormWrapper>
                     )}
                 </Formik>
