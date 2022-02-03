@@ -7,7 +7,6 @@ const Home = () => {
     return (
         <Layout>
            <Main />
-
         </Layout>
     );
 };

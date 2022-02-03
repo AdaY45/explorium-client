@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Form, Field} from 'formik';
 
 const loadfrom = keyframes`
@@ -45,7 +45,7 @@ export const Error = styled.div`
   color: rgba(255, 0, 0, 0.7);
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<{place?: string}>`
   width: 200px;
   padding: 16px 5px;
   margin: 20px 0px;
@@ -60,8 +60,16 @@ export const Button = styled.button`
   border: none;
   background-color: #ADFF33;
   border-radius: 17px;
+  transition: all 0.5s;
+
+  ${props => props.place === 'card' &&
+          css`
+            margin-left: auto;
+            margin-right: auto;
+          `};
 
   :hover {
+    transition: all 0.5s;
     cursor: pointer;
     color: white;
     background-color: #000;
