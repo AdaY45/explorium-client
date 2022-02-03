@@ -1,6 +1,6 @@
-import React, {FC} from 'react';
-import {Author, CardWrapper, Content, HalfStar, Image, Name, Price, Rate, RateContainer, Star} from "./styles";
-import {Button} from "../Auth/styles";
+import React, { FC } from 'react';
+import { Author, CardWrapper, Content, HalfStar, Image, Name, Price, Rate, RateContainer, Star } from "./styles";
+import { Button } from "../Auth/styles";
 
 interface ICard {
     url: string;
@@ -13,12 +13,15 @@ interface ICard {
 const Card: FC<ICard> = ({url, name, author, rate, price}) => {
     const rateFill = (rate: number) => {
         let stars = [];
-        while (rate > 1) {
+
+        /* Продумать логику */
+
+        while (parseInt(rate.toFixed(0)) > 1) {
             stars.push(<Star />);
             rate--;
         }
 
-        if (rate > 0.5) {
+        if (parseInt(rate.toString().split('.')[1]) > 5) {
             stars.push(<HalfStar />);
         }
 
@@ -29,13 +32,13 @@ const Card: FC<ICard> = ({url, name, author, rate, price}) => {
         <CardWrapper>
             <Image src={url} />
             <Content>
-                <Name>{name}</Name>
+                <Name>{name.slice(0, 60)}</Name>
                 <Author>{author}</Author>
                 <RateContainer>
                     <Rate>{rate}</Rate>
                     <Rate>{rateFill(rate)}</Rate>
                 </RateContainer>
-                <Price>$ {price}</Price>
+                <Price>{price.toString().split('.').join(',')} $</Price>
                 <Button place={'card'} type="submit">Додати в кошик</Button>
             </Content>
         </CardWrapper>

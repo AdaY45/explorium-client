@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
-import {useNavigate} from "react-router-dom";
-import {Formik, Form, Field, ErrorMessage} from 'formik';
-import {AuthWrapper, Button, Error, FormFieldWrapper, FormWrapper, Headline, Label, Input} from "../styles";
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { AuthWrapper, Button, Error, FormFieldWrapper, FormWrapper, Headline, Label, Input, LabelErrorWrapper } from "../styles";
 import * as Yup from 'yup';
 import Layout from "../../Layout/Layout";
 import axios from "axios";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
 interface IFormValues {
     email: string;
@@ -32,7 +32,7 @@ const Login = () => {
             await axios.post(`http://localhost:5000/login`, { ...values })
                 .then(res => {
                     if (res.data.errors) {
-                       setError(res.data.errors.message);
+                        setError(res.data.errors.message);
                     } else {
                         // dispatch();
                         navigate("/", { replace: false })
@@ -49,26 +49,30 @@ const Login = () => {
             <AuthWrapper>
                 <Headline>Авторизація</Headline>
                 <Formik
-                    initialValues={{email: '', password: ''}}
+                    initialValues={{ email: '', password: '' }}
                     validationSchema={LoginSchema}
                     onSubmit={(values) => onSubmitHandler(values)}
                 >
-                    {({errors, touched}) => (
+                    {({ errors, touched }) => (
                         <FormWrapper>
                             {error && <Error>{error}</Error>}
                             <FormFieldWrapper>
-                                <Label htmlFor="email">Ел. пошта</Label>
+                                <LabelErrorWrapper>
+                                    <Label htmlFor="email">Ел. пошта</Label>
+                                    {errors.email && touched.email ? (
+                                        <Error>{errors.email}</Error>
+                                    ) : null}
+                                </LabelErrorWrapper>
                                 <Input type="email" name="email" placeholder="Введіть свою пошту" />
-                                {errors.email && touched.email ? (
-                                    <Error>{errors.email}</Error>
-                                ) : null}
+
                             </FormFieldWrapper>
                             <FormFieldWrapper>
-                                <Label htmlFor="password">Пароль</Label>
+                                <LabelErrorWrapper>
+                                    <Label htmlFor="password">Пароль</Label> {errors.password && touched.password ? (
+                                        <Error>{errors.password}</Error>
+                                    ) : null}
+                                </LabelErrorWrapper>
                                 <Input type="password" name="password" placeholder="Введіть свій пароль" />
-                                {errors.password && touched.password ? (
-                                    <Error>{errors.password}</Error>
-                                ) : null}
                             </FormFieldWrapper>
                             <Button type="submit">Увійти</Button>
                         </FormWrapper>

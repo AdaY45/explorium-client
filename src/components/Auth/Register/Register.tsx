@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {useNavigate} from "react-router-dom";
-import {Formik, Form, Field, ErrorMessage} from 'formik';
-import {AuthWrapper, Button, Error, Headline, Input, Label, FormFieldWrapper, FormWrapper} from "../styles";
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { AuthWrapper, Button, Error, Headline, Input, Label, FormFieldWrapper, FormWrapper, LabelErrorWrapper } from "../styles";
 import * as Yup from 'yup';
 import Layout from "../../Layout/Layout";
 import axios from "axios";
@@ -50,33 +50,39 @@ const Register = () => {
             <AuthWrapper>
                 <Headline>Реєстрація</Headline>
                 <Formik
-                    initialValues={{name: '', email: '', password: ''}}
+                    initialValues={{ name: '', email: '', password: '' }}
                     validationSchema={RegisterSchema}
                     onSubmit={(values) => onSubmitHandler(values)}
                 >
-                    {({errors, touched}) => (
+                    {({ errors, touched }) => (
                         <FormWrapper>
                             {error && <Error>{error}</Error>}
                             <FormFieldWrapper>
-                                <Label htmlFor="name">Логін</Label>
-                                <Input type="text" name="name" placeholder="Введіть свій логін"/>
-                                {errors.name && touched.name ? (
-                                    <Error>{errors.name}</Error>
-                                ) : null}
+                                <LabelErrorWrapper>
+                                    <Label htmlFor="name">Логін</Label>
+                                    {errors.name && touched.name ? (
+                                        <Error>{errors.name}</Error>
+                                    ) : null}
+                                </LabelErrorWrapper>
+                                <Input type="text" name="name" placeholder="Введіть свій логін" />
                             </FormFieldWrapper>
                             <FormFieldWrapper>
-                                <Label htmlFor="email">Ел. пошта</Label>
-                                <Input type="email" name="email" placeholder="Введіть свій логін"/>
-                                {errors.email && touched.email ? (
-                                    <Error>{errors.email}</Error>
-                                ) : null}
+                                <LabelErrorWrapper>
+                                    <Label htmlFor="email">Ел. пошта</Label>
+                                    {errors.email && touched.email ? (
+                                        <Error>{errors.email}</Error>
+                                    ) : null}
+                                </LabelErrorWrapper>
+                                <Input type="email" name="email" placeholder="Введіть свій логін" />
                             </FormFieldWrapper>
                             <FormFieldWrapper>
-                                <Label htmlFor="password">Пароль</Label>
-                                <Input type="password" name="password" placeholder="Введіть свій логін"/>
-                                {errors.password && touched.password ? (
-                                    <Error>{errors.password}</Error>
-                                ) : null}
+                                <LabelErrorWrapper>
+                                    <Label htmlFor="password">Пароль</Label>
+                                    {errors.password && touched.password ? (
+                                        <Error>{errors.password}</Error>
+                                    ) : null}
+                                </LabelErrorWrapper>
+                                <Input type="password" name="password" placeholder="Введіть свій логін" />
                             </FormFieldWrapper>
                             <Button type="submit">Створити акаунт</Button>
                         </FormWrapper>

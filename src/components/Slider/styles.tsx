@@ -5,6 +5,10 @@ export const ArrowWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 20px;
+
+  i {
+    font-size: 1.7rem;
+  }
   
   &:hover {
     cursor: pointer;

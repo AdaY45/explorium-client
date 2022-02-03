@@ -10,9 +10,9 @@ const SignupAdvertise = () => {
         <ContainerSignup>
                 <ContainerContacts>
                     <ContainerMenu>
-                        <MenuText><InfoIcon></InfoIcon> информация</MenuText>
-                        <MenuText><PhoneIcon></PhoneIcon> связь с менеджером</MenuText>
-                        <MenuText><EmailIcon></EmailIcon> связь по почте</MenuText>
+                        <MenuText tabIndex={0}><InfoIcon></InfoIcon> информация</MenuText>
+                        <MenuText tabIndex={0}><PhoneIcon></PhoneIcon> связь с менеджером</MenuText>
+                        <MenuText tabIndex={0}><EmailIcon></EmailIcon> связь по почте</MenuText>
                         <CommunicationForm></CommunicationForm>
                     </ContainerMenu>
                 </ContainerContacts>

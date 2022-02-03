@@ -241,6 +241,7 @@ export const CommunicationForm = styled.div`
     
     border-radius: 30px;
     background-color: white;
+    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.1);
 
     animation-name: ${fadeOut};
     animation-duration: 0.3s;
@@ -291,22 +292,13 @@ export const MenuText = styled.p`
 
     :hover {
         cursor: pointer;
-
-        transition: all 0.3s;
-
-        border-radius: 20px;
-        background-color: rgba(255, 255, 255, 1);
-        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.03);
-
-        transform: scale(1.12);
-
         color: rgba(0, 0, 0, 0.7);
     }
 
-    :nth-child(1) {
+    :focus {
         transition: all 0.3s;
 
-        border-radius: 20px;
+        border-radius: 18px;
         background-color: rgba(255, 255, 255, 1);
         box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.03);
 

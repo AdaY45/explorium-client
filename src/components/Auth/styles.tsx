@@ -1,5 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
-import { Form, Field} from 'formik';
+import { Form, Field } from 'formik';
 
 const loadfrom = keyframes`
   0% {
@@ -37,15 +37,14 @@ export const Headline = styled.div`
 `;
 
 export const Error = styled.div`
-  margin: auto;
-  padding: 8px 0px;
-  font-size: 11px;
+  padding: 20px 10px 5px;
+  font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
   color: rgba(255, 0, 0, 0.7);
 `;
 
-export const Button = styled.button<{place?: string}>`
+export const Button = styled.button<{ place?: string }>`
   width: 200px;
   padding: 16px 5px;
   margin: 20px 0px;
@@ -59,55 +58,74 @@ export const Button = styled.button<{place?: string}>`
   outline: none;
   border: none;
   background-color: #ADFF33;
+  box-shadow: 0px 0px 5px 0px #ADFF33;
   border-radius: 17px;
   transition: all 0.5s;
 
-  ${props => props.place === 'card' &&
-          css`
-            margin-left: auto;
-            margin-right: auto;
-          `};
+  ${props => props.place === 'card' && css`
+      margin-left: auto;
+      margin-right: auto;
+  `};
 
   :hover {
     transition: all 0.5s;
     cursor: pointer;
     color: white;
     background-color: #000;
+    box-shadow: 0px 0px 5px 0px #000;
   }
 `;
 
 export const Label = styled.label`
   padding: 20px 10px 5px;
-  font-size: 16px;
+
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   color: rgba(26, 26, 26, 0.8);
-
 `;
 
 export const Input = styled(Field)`
-  width: 400px;
-  padding: 10px 10px;
+  width: 380px;
+  padding: 15px 10px;
   
-  font-size: 12px;
-  color: rgba(26, 26, 26, 0.7);
-  
-  outline: none;
   border: none;
-  background: #EEEEEA;
-  border-bottom: 2px solid #000;
-  transition: 1s all;
+  outline: none;
+  background: #e2e2dd;
+  border-radius: 15px;
+
+  color: rgba(26, 26, 26, 0.7);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Commissioner', sans-serif;
 
   :focus {
-    border-bottom: 2px solid #ADFF33;
+    outline: 2px solid #ADFF33;
+
+    ::placeholder {
+      transition: .5s all;
+      opacity: 0;
+      transform: translateX(15px);
+    }
   }
 
   ::placeholder {
-    font-size: 11px;
-    font-family: 'Noto Sans', sans-serif;
+    transition: .5s all;
+
+    font-size: 0.80rem;
+    font-family: 'Commissioner', sans-serif;
     font-weight: 600;
     color: rgba(26, 26, 26, 0.5);
   }
+`;
+
+export const LabelErrorWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const FormFieldWrapper = styled.div`
