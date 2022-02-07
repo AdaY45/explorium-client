@@ -4,8 +4,6 @@ import { ContainerContacts, ContainerSignup, ContainerSignupForm, ContainerMenu,
 const SignupAdvertise = () => {
     const [isFocus, setFocus] = useState(false);
 
-    console.log(isFocus)
-
     return(
         <ContainerSignup>
                 <ContainerContacts>

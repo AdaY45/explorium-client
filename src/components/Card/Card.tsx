@@ -10,19 +10,21 @@ interface ICard {
     price: number;
 }
 
-const Card: FC<ICard> = ({url, name, author, rate, price}) => {
+const Card: FC<ICard> = ({ url, name, author, rate, price }) => {
     const rateFill = (rate: number) => {
         let stars = [];
 
         /* Продумать логику */
+        // console.log('nan', parseInt(rate.toString().split('.')[1]))
 
-        while (parseInt(rate.toFixed(0)) > 1) {
+
+        while(rate >=1 ) {
+
             stars.push(<Star />);
             rate--;
-        }
 
-        if (parseInt(rate.toString().split('.')[1]) > 5) {
-            stars.push(<HalfStar />);
+            // if(rate.    )
+
         }
 
         return stars;
